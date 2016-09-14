@@ -1,5 +1,12 @@
+.env
 /vendor
 /node_modules
 Homestead.yaml
 Homestead.json
 /public/css
+/public/js
+/bower_components
+*.lock
+composer.lock
+_ide_helper.php
+.phpstorm.meta.php

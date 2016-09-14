@@ -1,0 +1,46 @@
+(function(){
+
+    'use strict';
+    angular
+        .module('recert')
+        .config(routerConfig);
+
+    function routerConfig($stateProvider, $urlRouterProvider){
+        $stateProvider
+            .state('site', {
+                url: '',
+                abstract: true
+            })
+        .state('login', {
+            url: '/',
+            parent: 'site',
+            views: {
+                'main@': {
+                    templateUrl: 'app/login/login.html',
+                    controller: 'LoginController',
+                    controllerAs: 'lc'
+                }
+            },
+            data: {
+                title: 'Login'
+            }
+        })
+        .state('dashboard', {
+            url: '/dashboard',
+            parent: 'site',
+            views: {
+                'main@' : {
+                    templateUrl: 'app/main/main.html',
+                    controller: 'MainController',
+                    controllerAs: 'mc'
+                }
+            },
+            data: {
+                authentication: true,
+                title: 'Dashboard'
+            }
+        });
+        $urlRouterProvider.otherwise('/');
+    }
+
+})();
